@@ -1,5 +1,5 @@
-git clone <SKJI-131>
-cd <>
+git clone https://github.com/SKJI-131/repository.git
+cd <repository>
 echo'
 import java.util.Scanner;
 public class MinNotes {
