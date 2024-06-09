@@ -1,29 +1,27 @@
-git clone https://github.com/SKJI-131/repository.git
-cd <repository>
-echo'
-import java.util.Scanner;
-public class MinNotes {
-    public static int minNotes(int N) {
-        // List of available denominations in descending order
-        int[] denominations = {100, 50, 10, 5, 2, 1};
-        int count = 0;
-        for (int denom : denominations) {
-            if (N >= denom) {
-                count += N / denom;  // Add the number of notes of this denomination
-                N = N % denom;       // Update N to the remaining amount
+import java.util.Scanner; 
+public class task1A{
+    public static void main(String[]args){
+        Scanner scanner=new Scanner(System.in); 
+
+        System.out.print("Enter the amount of change to be given:");
+        int change=scanner.nextInt(); 
+
+        int min_notes=MinimumNotes(change);
+
+        System.out.println("Minimum number of notes:"+min_notes);
+
+        scanner.close();
+    }
+    
+    public static int MinimumNotes(int change){
+        int[] notes={100,50,10,5,2,1};
+        int count=0;
+        for (int x:notes){ 
+            if (change>=x){ 
+                count+=change/x;
+                change=change%x;
             }
         }
-        return count;
-    }
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the change to be given to Pranav: ");
-        int N = scanner.nextInt(); 
-        // Output: smallest number of notes to give the change
-        System.out.println(minNotes(N));
+    return count;
     }
 }
-' >MinNotes.java
-git add MinNotes.java
-git commit -m"add minnotes.java to compute smallest number of notes"
-git push origin main
